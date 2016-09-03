@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import Bootstrap from 'bootstrap/dist/css/bootstrap.css'
 import { Router, browserHistory } from 'react-router'
 import { syncHistoryWithStore } from 'react-router-redux'
 import { StyleSheet } from 'aphrodite'
