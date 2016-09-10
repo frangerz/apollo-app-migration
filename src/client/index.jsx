@@ -8,7 +8,7 @@ import errorCatcher from './error-catcher'
 import routes from '../routes'
 import Store from '../store'
 import { ApolloProvider } from 'react-apollo'
-import '../lib/stylesheets/layout.css'
+import './assets/layout.css'
 import ApolloClientSingleton from '../network/apollo-client-singleton'
 
 window.onerror = (msg, file, line, col, error) => { errorCatcher(error) }
