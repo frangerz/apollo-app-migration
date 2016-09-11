@@ -12,9 +12,7 @@
      -o-transition: all 0.5s ease;
      transition: all 0.5s ease;
  }
-.menu-toggle {
-  font: bold 2rem Georgia, serif;
-}
+
  #wrapper.toggled {
      padding-left: 250px;
  }

@@ -7,9 +7,10 @@ export function addCount(amount) {
     payload: amount
   }
 }
-
-export function toggleNavbar() {
+// navbar is boolean
+export function toggleNavbar(navbar) {
   return {
-    type: TOGGLE_NAVBAR
+    type: TOGGLE_NAVBAR,
+    payload: navbar
   }
 }

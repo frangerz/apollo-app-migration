@@ -1,7 +1,9 @@
 import React from 'react'
+import { connect } from 'react-apollo'
 import { Button } from 'react-bootstrap'
 import { toggleNavbar } from '../store/actions'
-export default function App({ children }) {
+
+function App({ children, navbar, onToggleNavbar }) {
   return (
     <div id='wrapper'>
       <div id='sidebar-wrapper'>
@@ -9,7 +11,6 @@ export default function App({ children }) {
           <li className='sidebar-brand'>
             <a
               href='#'
-              href='#menu-toggle'
               className='menu-toggle'
             >
               <h2>
@@ -47,11 +48,12 @@ export default function App({ children }) {
         </ul>
       </div>
       <div id='page-content-wrapper'>
+        <Button onClick={() => onToggleNavbar(navbar)}>
+          Navbar
+        </Button>
         <div className='container-fluid'>
           <div className='row'>
-            <div className='col-lg-12'>
               {children}
-            </div>
           </div>
         </div>
       </div>
@@ -60,5 +62,20 @@ export default function App({ children }) {
 }
 
 App.propTypes = {
-  children: React.PropTypes.object
+  children: React.PropTypes.object,
+  onToggleNavbar: React.PropTypes.func.isRequired
 }
+
+const mapStateToProps = ({ navbar }) => ({
+  navbar
+})
+
+const mapDispatchToProps = (dispatch) => ({
+  onToggleNavbar:
+    (navbar) => dispatch(toggleNavbar(navbar))
+})
+
+export default connect({
+  mapStateToProps,
+  mapDispatchToProps
+})(App)
